@@ -18,18 +18,20 @@ interface HeaderProps {
 
 export function Header({ title, onMobileMenuToggle }: HeaderProps) {
   return (
-    <header className="h-16 bg-card border-b border-border px-6 flex items-center justify-between">
+    <header className="h-16 bg-gradient-to-r from-background via-card to-background border-b border-border/50 px-6 flex items-center justify-between backdrop-blur-sm">
       <div className="flex items-center space-x-4">
         <Button
           variant="ghost"
           size="sm"
           onClick={onMobileMenuToggle}
-          className="lg:hidden"
+          className="lg:hidden hover:bg-primary/10"
         >
           <Menu className="w-5 h-5" />
         </Button>
         {title && (
-          <h1 className="text-2xl font-bold text-foreground">{title}</h1>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            {title}
+          </h1>
         )}
       </div>
 
@@ -44,11 +46,10 @@ export function Header({ title, onMobileMenuToggle }: HeaderProps) {
         </div>
 
         {/* Notifications */}
-        <Button variant="ghost" size="sm" className="relative">
+        <Button variant="ghost" size="sm" className="relative hover:bg-primary/10 transition-colors">
           <Bell className="w-5 h-5" />
           <Badge 
-            variant="destructive" 
-            className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs"
+            className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs gradient-expense"
           >
             3
           </Badge>
